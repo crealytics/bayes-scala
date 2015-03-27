@@ -1,7 +1,6 @@
 package dk.bayes.model.factorgraph
 
 import dk.bayes.model.factor.api.Factor
-import dk.bayes.model.factor.GaussianFactor
 import dk.bayes.model.factor.api.SingleFactor
 
 /**

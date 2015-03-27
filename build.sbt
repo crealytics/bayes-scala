@@ -1,9 +1,11 @@
-lazy val root = (project in file(".")).
+lazy val app = crossProject.
   settings(
     name := "bayes-scala",
     organization := "com.github.danielkorzekwa",
     version := "0.5-SNAPSHOT",
     scalaVersion := "2.10.4",
+    unmanagedSourceDirectories in Compile +=
+      baseDirectory.value  / "shared" / "main" / "scala",
     scalacOptions ++= Seq(
       "-feature",
       "-deprecation",
@@ -23,3 +25,18 @@ lazy val root = (project in file(".")).
       "com.novocode" % "junit-interface" % "0.11" % Test
     )
   )
+  .jsSettings(
+    libraryDependencies ++= Seq(
+      "org.scala-js" %%% "scalajs-dom" % "0.8.0"
+    )
+  ).jvmSettings(
+    libraryDependencies ++= Seq(
+      "io.spray" %% "spray-can" % "1.3.2",
+      "io.spray" %% "spray-routing" % "1.3.2",
+      "com.typesafe.akka" %% "akka-actor" % "2.3.6"
+    )
+  )
+
+lazy val js = app.js
+
+lazy val jvm = app.jvm

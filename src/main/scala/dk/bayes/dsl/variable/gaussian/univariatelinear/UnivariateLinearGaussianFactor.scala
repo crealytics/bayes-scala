@@ -3,8 +3,6 @@ package dk.bayes.dsl.variable.gaussian.univariatelinear
 import dk.bayes.dsl.factor.DoubleFactor
 import dk.bayes.math.gaussian.canonical.CanonicalGaussian
 import dk.bayes.math.gaussian.Gaussian
-import scala.reflect._
-import scala.reflect.runtime.universe._
 import dk.bayes.math.gaussian.canonical.DenseCanonicalGaussian
 
 trait UnivariateLinearGaussianFactor extends DoubleFactor[Gaussian, Any] {
